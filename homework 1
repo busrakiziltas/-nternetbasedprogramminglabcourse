@@ -1,0 +1,9 @@
+<a href="https://www.example.com">Link to another site</a>
+<a href="page.html">Link to a page on the same site</a> // To create a link to another site or page on the same site, you can use the HTML <a> tag with the href attribute
+                         //
+<a href="#" onclick="alert('Hello, world!')">Click me</a>
+<a href="mailto:example@example.com" onclick="window.location.href=this.href; return false;">Send email</a>
+<a href="tel:1234567890" onclick="window.location.href=this.href; return false;">Call us</a> // To create a link that runs JavaScript or opens the email client, you can use the onclick attribute with JavaScript code
+                         //
+<a href="https://www.example.com" target="_blank">Open in a new tab</a>
+<a href="page.html" target="_blank">Open in a new tab</a> // To open the link in a new tab or window, you can use the target attribute with the _blank value
