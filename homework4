@@ -1,0 +1,39 @@
+//  here's an example of a form with inputs and a button, and how to implement it with different form actions using the GET and POST methods with different target attributes:
+<form action="https://example.com" method="GET" target="_blank">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+  <button type="submit">Submit</button>
+</form>
+
+<form action="https://example.com" method="POST" target="_self">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name"><br><br>
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email"><br><br>
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br><br>
+  <button type="submit">Submit</button>
+</form>
+// In the first form, the action attribute is set to "https://example.com" with the GET method and target attribute set to "_blank". This means that the form data will be sent to the specified URL in a new browser tab or window.
+In the second form, the action attribute is set to "https://example.com" with the POST method and target attribute set to "_self". This means that the form data will be sent to the specified URL in the same browser tab or window.//
+// For the additional homework of implementing a simple canvas application in HTML5, here's an example of how to create a canvas and draw a rectangle on it:  //
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Canvas Application</title>
+</head>
+<body>
+	<canvas id="myCanvas" width="500" height="500"></canvas>
+	<script>
+		var canvas = document.getElementById("myCanvas");
+		var context = canvas.getContext("2d");
+		context.fillStyle = "#FF0000";
+		context.fillRect(100, 100, 200, 200);
+	</script>
+</body>
+</html>
+// In this example, we first create a canvas element with an id of "my Canvas" and set its width and height to 500 pixels. Then, we use JavaScript to get the canvas element and its 2D rendering context. We set the fillstyle to read and draw a rectangle on the canvas using the fillRect() method. The rectangle is positioned at (100, 100) with a width of 200 pixels and a height of 200 pixels.//
