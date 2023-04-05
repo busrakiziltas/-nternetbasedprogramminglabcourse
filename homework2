@@ -1,0 +1,53 @@
+<header>
+   <img src="logo.png" alt="Company Logo">
+</header> // Adding a logo to the header of a website
+         //
+<article>
+   <h2>Article Title</h2>
+   <img src="image.png" alt="Article Image">
+   <p>Article content goes here.</p>
+</article> // Adding images to a blog post.
+         //
+<section>
+   <h2>Photo Gallery</h2>
+   <img src="photo1.jpg" alt="Photo 1">
+   <img src="photo2.jpg" alt="Photo 2">
+   <img src="photo3.jpg" alt="Photo 3">
+</section> // Creating a photo gallery
+        //
+<nav>
+   <img src="nav-bar.png" usemap="#nav-map" alt="Navigation Bar">
+   <map name="nav-map">
+      <area shape="rect" coords="0,0,50,50" href="home.html" alt="Home">
+      <area shape="rect" coords="50,0,100,50" href="about.html" alt="About">
+      <area shape="rect" coords="100,0,150,50" href="contact.html" alt="Contact">
+   </map>
+</nav> // Creating a navigation bar using an image map
+        //
+<img src="floor-plan.jpg" usemap="#floor-plan" alt="Floor Plan">
+<map name="floor-plan">
+   <area shape="rect" coords="50,50,100,100" href="room1.html" alt="Room 1">
+   <area shape="rect" coords="100,100,150,150" href="room2.html" alt="Room 2">
+   <area shape="rect" coords="150,150,200,200" href="room3.html" alt="Room 3">
+</map> // Creating a clickable floor plan of a building
+         ////
+<body style="background-color: #F0F0F0;">
+   <h1>Page Title</h1>
+   <p>Page content goes here.</p>
+</body> // Setting the background color of a webpage
+        /////
+<h2 style="color: blue;">Heading Text</h2>
+<p style="color: red;">Paragraph Text</p> // Changing the color of text
+        ////
+<div style="background: linear-gradient(to bottom, #F0F0F0, #CCCCCC);">
+   <h3>Section Title</h3>
+   <p>Section content goes here.</p>
+</div> // Using gradients to create a visually appealing design
+
+
+
+
+
+
+
+
