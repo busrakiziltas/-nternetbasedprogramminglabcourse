@@ -1,0 +1,49 @@
+here are examples of how to use all input types in HTML5:
+<input type="hidden" name="user_id" value="1234"> // Hidden
+<label for="phone">Phone:</label>
+<input type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required> // Tel
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required> // Email
+<label for="quantity">Quantity:</label>
+<input type="number" id="quantity" name="quantity" min="1" max="10"> // Number
+<label for="volume">Volume:</label>
+<input type="range" id="volume" name="volume" min="0" max="100" step="10"> // Range
+<label for="search">Search:</label>
+<input type="search" id="search" name="search"> // Search
+<label for="picture">Picture:</label>
+<input type="image" id="picture" name="picture" src="picture.jpg" alt="Picture"> // Image
+<label for="week">Week:</label>
+<input type="week" id="week" name="week"> // Week
+<label for="website">Website:</label>
+<input type="url" id="website" name="website" required> // URL
+<label for="datetime">Date and Time:</label>
+<input type="datetime-local" id="datetime" name="datetime"> // DateTime-Local
+<label for="month">Month:</label>
+<input type="month" id="month" name="month"> // Month
+<label for="time">Time:</label>
+<input type="time" id="time" name="time">
+
+ // Now, let's explore the concept of Meta Information in HTML5. Meta information provides additional information about a web page. Here are examples of how to use meta tags for author, description, generator, and keywords:
+
+1. Author
+<meta name="author" content="John Doe">
+``` // Time
+<meta name="description" content="This is a website about cooking recipes."> // Description
+<meta name="generator" content="HTML5"> // Generator
+<meta name="keywords" content="cooking, recipes, food"> // Keywords
+ // Additionally, the application-name meta tag is used to specify the name of the web application. Here's an example:
+<meta name="application-name" content="OpenStreetMap">                   
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
