@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Registration Form</title>
+</head>
+<body>
+  <h1>Student Registration Form</h1>
+  <form action="register.php" method="POST">
+    <label for="full_name">Full Name:</label>
+    <input type="text" id="full_name" name="full_name" required><br><br>
+
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" required><br><br>
+
+    <label for="gender">Gender:</label>
+    <input type="radio" id="male" name="gender" value="Male" required>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="Female" required>
+    <label for="female">Female</label><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
+Next, create a file named register.php :
+<?php
+// Database configuration
+$host = 'localhost'; // Change this if your MySQL server is running on a different host
+$username = 'root'; // Change this to your MySQL username
+$password = ''; // Change this to your MySQL password
+$database = 'your_database'; // Change this to the name of your MySQL database
+
+// Establish a database connection
+$mysqli = new mysqli($host, $username, $password, $database);
+
+// Check for connection errors
+if ($mysqli->connect_errno) {
+  die('Failed to connect to MySQL: ' . $mysqli->connect_error);
+}
+
+// Create the students table if it doesn't exist
+$query = "CREATE TABLE IF NOT EXISTS students (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  full_name VARCHAR(255),
+  email VARCHAR(255),
+  gender ENUM('Male', 'Female')
+)";
+$mysqli->query($query);
+
+// Validate and sanitize form data
+$full_name = $_POST['full_name'];
+$email = $_POST['email'];
+$gender = $_POST['gender'];
+
+$errors = array();
+
+if (empty($full_name)) {
+  $errors[] = 'Full Name is required';
+}
+
+if (empty($email)) {
+  $errors[] = 'Email Address is required';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  $errors[] = 'Invalid Email Address';
+}
+
+if (empty($gender)) {
+  $errors[] = 'Gender is required';
+}
+
+// If there are any errors, display them and stop further execution
+if (!empty($errors)) {
+  foreach ($errors as $error) {
+    echo $error . '<br>';
+  }
+  $mysqli->close();
+  die();
+}
+
+// Insert student information into the database
+$query = "INSERT INTO students (full_name, email, gender) VALUES ('$full_name', '$email', '$gender')";
+
+if ($mysqli->query($query)) {
+  echo 'Registration Successful';
+} else {
+  echo 'Error: ' . $mysqli->error;
+}
+
+// Close the database connection
+$mysqli->close();
+?>
