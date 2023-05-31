@@ -1,0 +1,53 @@
+<?php
+// Veritabanı bağlantısı
+$servername = "localhost";
+$username = "kullanici_adi";
+$password = "sifre";
+$dbname = "veritabani_adi";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+if ($conn->connect_error) {
+    die("Veritabanı bağlantısı başarısız oldu: " . $conn->connect_error);
+}
+
+// POST verilerini al
+$fullname = $_POST['fullname'];
+$email = $_POST['email'];
+$gender = $_POST['gender'];
+
+// Veri doğrulama
+$errors = array();
+
+if (empty($fullname)) {
+    $errors[] = "Lütfen adınızı girin.";
+}
+
+if (empty($email)) {
+    $errors[] = "Lütfen e-posta adresinizi girin.";
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = "Geçerli bir e-posta adresi girin.";
+}
+
+if (empty($gender)) {
+    $errors[] = "Lütfen cinsiyetinizi seçin.";
+}
+
+// Hataları göster
+if (!empty($errors)) {
+    foreach ($errors as $error) {
+        echo $error . "<br>";
+    }
+} else {
+    // Veritabanına veri ekle
+    $sql = "INSERT INTO students (full_name, email, gender) VALUES ('$fullname', '$email', '$gender')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Başarıyla kaydedildi.";
+    } else {
+        echo "Hata: " . $sql . "<br>" . $conn->error;
+    }
+}
+
+// Veritabanı bağlantısını kapat
+$conn->close();
+?>
