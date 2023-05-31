@@ -1,8 +1,8 @@
 <?php
 // Database configuration
-$servername = "localhost"; // MySQL server name (e.g., localhost)
-$username = "root"; // MySQL username
-$password = ""; // MySQL password
+$servername = "localhost"; 
+$username = "root";
+$password = ""; 
 $dbname = "student_management_db"; 
 
 // Create database connection
