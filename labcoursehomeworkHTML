@@ -5,20 +5,25 @@
 </head>
 <body>
     <h1>Student Registration Form</h1>
-    <form action="register.php" method="POST">
-        <label for="fullname">Full Name:</label>
-        <input type="text" id="fullname" name="fullname" required><br><br>
-        
+
+    <form method="POST" action="process_form.php">
+        <label for="full_name">Full Name:</label>
+        <input type="text" name="full_name" required><br><br> // Input field for the full name. The "required" attribute ensures that the field is not left empty.
+
         <label for="email">Email Address:</label>
-        <input type="email" id="email" name="email" required><br><br>
-        
-        <label>Gender:</label>
-        <input type="radio" id="male" name="gender" value="Male" required>
-        <label for="male">Male</label>
-        <input type="radio" id="female" name="gender" value="Female" required>
-        <label for="female">Female</label><br><br>
-        
+        <input type="email" name="email" required><br><br> // Input field for the email address. The "required" attribute ensures that a valid email address is provided.
+
+        <label for="gender">Gender:</label>
+        <input type="radio" name="gender" value="Male" required> Male
+        // Radio button for selecting male gender.
+
+        <input type="radio" name="gender" value="Female" required> Female
+        // Radio button for selecting female gender.
+
+        <br><br>
+
         <input type="submit" value="Submit">
+        // Submit button for submitting the form data.
     </form>
 </body>
 </html>
