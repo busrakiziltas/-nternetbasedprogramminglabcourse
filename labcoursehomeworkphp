@@ -1,53 +1,55 @@
 <?php
-// Veritabanı bağlantısı
-$servername = "localhost";
-$username = "kullanici_adi";
-$password = "sifre";
-$dbname = "veritabani_adi";
+// Database configuration
+$servername = "localhost"; // MySQL server name (e.g., localhost)
+$username = "root"; // MySQL username
+$password = ""; // MySQL password
+$dbname = "student_management_db"; 
 
+// Create database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+// Check for connection errors
 if ($conn->connect_error) {
-    die("Veritabanı bağlantısı başarısız oldu: " . $conn->connect_error);
+    die("Connection failed: " . $conn->connect_error);
 }
 
-// POST verilerini al
-$fullname = $_POST['fullname'];
-$email = $_POST['email'];
-$gender = $_POST['gender'];
+// Retrieve form data
+$full_name = $_POST['full_name']; // Get the value of the "full_name" input field from the form
+$email = $_POST['email']; // Get the value of the "email" input field from the form
+$gender = $_POST['gender']; // Get the value of the "gender" radio button from the form
 
-// Veri doğrulama
+// Validate form data on the server-side
 $errors = array();
 
-if (empty($fullname)) {
-    $errors[] = "Lütfen adınızı girin.";
+// Validate full name
+if (empty($full_name)) {
+    $errors[] = "Full name is required.";
 }
 
+// Validate email
 if (empty($email)) {
-    $errors[] = "Lütfen e-posta adresinizi girin.";
+    $errors[] = "Email address is required.";
 } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    $errors[] = "Geçerli bir e-posta adresi girin.";
+    $errors[] = "Invalid email address.";
 }
 
-if (empty($gender)) {
-    $errors[] = "Lütfen cinsiyetinizi seçin.";
-}
-
-// Hataları göster
+// If there are any errors, display them and stop further execution
 if (!empty($errors)) {
     foreach ($errors as $error) {
-        echo $error . "<br>";
+        echo $error . "<br>"; // Display each error message
     }
-} else {
-    // Veritabanına veri ekle
-    $sql = "INSERT INTO students (full_name, email, gender) VALUES ('$fullname', '$email', '$gender')";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "Başarıyla kaydedildi.";
-    } else {
-        echo "Hata: " . $sql . "<br>" . $conn->error;
-    }
+    $conn->close();
+    die();
 }
 
-// Veritabanı bağlantısını kapat
+// Insert data into the "students" table
+$sql = "INSERT INTO students (full_name, email, gender) VALUES ('$full_name', '$email', '$gender')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Data inserted successfully!"; // Display success message
+} else {
+    echo "Error inserting data: " . $conn->error; // Display error message if data insertion fails
+}
+
 $conn->close();
 ?>
