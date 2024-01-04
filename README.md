@@ -1,2 +1,1 @@
-# 2015010213036internetbasedprogramminghomeworks
-2015010213036 Büşra Kızıltaş Internet Based Programming dersi verilen homeworklerdir
+# Internet Based Programming Proje/ İnsan Kaynakları Yönetim Sistemi
