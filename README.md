@@ -1,1 +1,1 @@
-# Internet Based Programming Proje/ İnsan Kaynakları Yönetim Sistemi
+# Internet Based Programming Project/ human resources management system
